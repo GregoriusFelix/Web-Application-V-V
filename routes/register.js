@@ -23,7 +23,7 @@ const transporter_gmail = nodemailer.createTransport({
 // Rate limiter for registration
 const registerLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
-    max: 5, // Allow max 5 registration attempts per minute per IP
+    max: 10000, // Allow max 5 registration attempts per minute per IP
     message: {
         success: false,
         message: "Too many registration attempts. Please try again later."
@@ -33,7 +33,7 @@ const registerLimiter = rateLimit({
 // Limit for /activate (OTP/token)
 const activateLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 10, 
+    max: 10000, 
     standardHeaders: true,
     legacyHeaders: false,
     message: {
@@ -45,7 +45,7 @@ const activateLimiter = rateLimit({
 // Limit for endpoint getdata
 const publicReadLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
-    max: 60, // max 60 hit per minutes per IP
+    max: 10000, // max 60 hit per minutes per IP
     standardHeaders: true,
     legacyHeaders: false,
     message: {
