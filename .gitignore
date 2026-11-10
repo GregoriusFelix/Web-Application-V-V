@@ -3,3 +3,8 @@ data/
 *.sqlite 
 .DS_Store 
 /build/
+.env
+.env.*
+!.env.example
+/.history-cleanup/
+/.history-cleanup-tools/
